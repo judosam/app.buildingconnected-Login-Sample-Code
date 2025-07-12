@@ -51,15 +51,6 @@ pip install playwright beautifulsoup4 pandas lxml python-dotenv
 
 ---
 
-## 🔐 Environment Variables (.env)
-
-Create a `.env` file in the project root to securely store sensitive credentials:
-
-```env
-GMAIL_EMAIL=your_email@gmail.com
-GMAIL_APP_PASSWORD=your_gmail_app_password
-AUTODESK_PASSWORD=your_autodesk_password
-```
 
 ### ✅ How to generate Gmail App Password:
 If you have 2FA enabled on Gmail, [generate an App Password](https://support.google.com/accounts/answer/185833) and use it instead of your real password.
@@ -95,16 +86,6 @@ This will:
 
 ---
 
-## 🛑 Warning
-
-- ❌ **DO NOT** commit your `.env` file.
-- ✅ Add `.env` to `.gitignore`:
-
-```bash
-echo ".env" > .gitignore
-```
-
----
 
 ## 🧑‍💻 Author
 
