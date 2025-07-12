@@ -6,6 +6,9 @@ import imaplib
 import email
 import re
 import json
+from datetime import datetime
+now = datetime.now()
+dt = now.strftime("%b-%d")
 
 EMAIL = "judosam72@gmail.com"
 PASSWORD = "bxkx kjmv nscj ndyq"  # Use 16-digit App Password if 2FA is on
@@ -126,18 +129,18 @@ async def main():
 		df = df.loc[:, df.columns[df.apply(lambda col: col.str.strip().astype(bool).any(), axis=0)]]
 		print("DataFrame created with columns:", df.columns.tolist())
 		print(df)
-		df.to_excel("autodesk_pipeline.xlsx", index=False)
+		df.to_excel(f"autodesk_pipeline_{dt}.xlsx", index=False)
 
 		df_dict = df.to_dict(orient='records')
 		print(df_dict)
 		print("DataFrame converted to dictionary format.")
 		
-		with open("autodesk_pipeline.json", "w", encoding="utf-8") as f:
+		with open(f"autodesk_pipeline_{dt}.json", "w", encoding="utf-8") as f:
 			json.dump(df_dict, f, ensure_ascii=False, indent=2)
 		
 		print("Data saved to autodesk_pipeline.xlsx and autodesk_pipeline.json")
 		
-		await page.screenshot(path="autodesk_pipeline.png", full_page=True)
+		await page.screenshot(path=f"autodesk_pipeline_{dt}.png", full_page=True)
 		print("Screenshot saved as autodesk_pipeline.png")
 
 		await browser.close()
